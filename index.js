@@ -190,7 +190,7 @@ function gavel(message, database) {
   });
 }
 
-function bid(message, database, option) {
+function roll(message, database, option) {
   var collection = database.collection('raid-groups');
   collection.find({}).toArray((err, table) => {
     for (let row in table) {
@@ -206,7 +206,7 @@ function bid(message, database, option) {
         }}
       }
     }
-  });
+  }); 
 }
 
 
@@ -237,7 +237,7 @@ mDB.connect(process.env.MONGODB_URI, (err, database) => {
         if (option[1] === 'join') {join_raid(message, database)}
         if (option[1] === 'balance') {balance(message, database)}
         
-        if (option[1] === 'bid') {bid(message, database, option[2])}
+        if (option[1] === 'roll') {roll(message, database, option[2])}
 
         if (message.member.roles.some(r=>['Raid Leader'].includes(r.name)) === true) {
           if (option[1] === 'start') {start_raid(message, database)}
