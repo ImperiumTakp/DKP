@@ -21,7 +21,7 @@ module.exports = {
       .addBlankField(true)
       .addField('join', '(**player**) *Joins the raid.*')
       .addField('balance', '(**player**) *Show personal dkp balance.*')
-      .addField('bid [int]', '(**player**) *Requires an amount, (@bot bid 10). Allows players to bid their dkp for current auction item.*')
+      .addField('roll [int]', '(**player**) *Requires an amount, (@bot bid 10). Allows players to bid their dkp for current auction item.*')
       .addBlankField(true)
       .setTimestamp();
     return embed;
@@ -93,9 +93,9 @@ module.exports = {
     return embed;
   },
 
-  newBid: (discord, message, option) => {
+  newRoll: (discord, message, option) => {
     let embed = new discord.RichEmbed()
-      .setTitle('Highest Bid')
+      .setTitle('Highest Roll')
       .setColor('#c384ff')
       .setDescription(`**${message.author.username}** ${option}`);
     return embed;
