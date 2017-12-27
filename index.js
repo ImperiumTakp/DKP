@@ -230,7 +230,7 @@ mDB.connect(process.env.MONGODB_URI, (err, database) => {
     if (message.isMentioned(client.user) && message.channel.type === 'text') {
       var option = message.content.split(' ');
 
-        if (message.member.roles.some(r=>['Officer'].includes(r.name)) === true) {
+        if (message.member.roles.some(r=>['Member','Officer'].includes(r.name)) === true) {
         if (option[1] === 'init') {initiate_raid(message, database)}
       }
       if (available.indexOf(message.channel.name) > -1) {
@@ -239,7 +239,7 @@ mDB.connect(process.env.MONGODB_URI, (err, database) => {
         
         if (option[1] === 'roll') {roll(message, database, option[2])}
 
-        if (message.member.roles.some(r=>['Raid Leader'].includes(r.name)) === true) {
+        if (message.member.roles.some(r=>['Officer'].includes(r.name)) === true) {
           if (option[1] === 'start') {start_raid(message, database)}
           if (option[1] === 'end') {end_raid(message, database)}
           if (option[1] === 'award') {award(message, database, option[2])}
