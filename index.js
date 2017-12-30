@@ -57,6 +57,7 @@ function join_raid(message, database) {
 }
 
 function start_raid(message, database) {
+  ontime[message.channel.name]=[]
   var collection = database.collection('raid-groups');
   collection.find({}).toArray((err, table) => {
     for (let row in table) {
